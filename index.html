@@ -13,10 +13,10 @@
             <div class="logo">EcoCart 🌿</div>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#impact">Our Impact</a></li>
-                    <li><a href="#blog">Eco-Blog</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="impact.html">Our Impact</a></li>
+                    <li><a href="blog.html">Eco-Blog</a></li>
                 </ul>
             </nav>
             <div class="cart-icon">Cart (0)</div>
@@ -57,7 +57,7 @@
             <div class="product-grid">
                 <div class="product-card">
                     <div class="product-image" style="background-color: #e0e0e0;">
-                        <img src="bamboobottle.jpg" alt="Bamboo Bottle">
+                        <img src="photos/bamboobottle.jpg" alt="Bamboo Bottle">
                     </div>
                     <div class="product-info">
                         <span class="tag">Recycled</span>
@@ -70,7 +70,7 @@
 
                 <div class="product-card">
                     <div class="product-image" style="background-color: #e0e0e0;">
-                        <img src="bag.webp" alt="Tote Bag">
+                        <img src="photos/bag.webp" alt="Tote Bag">
                     </div>
                     <div class="product-info">
                         <span class="tag">Organic</span>
@@ -83,7 +83,7 @@
 
                 <div class="product-card">
                     <div class="product-image" style="background-color: #e0e0e0;">
-                        <img src="notebook.jpg" alt="Notebook">
+                        <img src="photos/notebook.jpg" alt="Notebook">
                     </div>
                     <div class="product-info">
                         <span class="tag">Upcycled</span>
@@ -120,4 +120,31 @@
     </footer>
 
 </body>
+<script>
+    const addButtons = document.querySelectorAll(".btn-sm");
+
+    const cartIcon = document.querySelector(".cart-icon");
+    let cartCount = 0;
+
+    function updateCart() {
+        cartCount++;
+        cartIcon.textContent = `Cart (${cartCount})`;
+        showMessage("Item added to cart!");
+    }
+
+    function showMessage(text) {
+        const msg = document.createElement("div");
+        msg.className = "popup-msg";
+        msg.textContent = text;
+        document.body.appendChild(msg);
+
+        setTimeout(() => {
+            msg.remove();
+        }, 1500);
+    }
+
+    addButtons.forEach(btn => {
+        btn.addEventListener("click", updateCart);
+    });
+</script>
 </html>
